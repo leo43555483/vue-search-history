@@ -1,7 +1,10 @@
 {
-  "name": "npm",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-search-history",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/vue-search-history.common.js",
+  "author": "zhl <664995185@qq.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,6 +15,10 @@
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },
+  "engines": {
+		"node": ">= 8.11.4",
+		"npm": ">= 5.6.0"
+	},
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
@@ -24,5 +31,10 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-vue": "^6.1.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/leo43555483/vue-index-box"
+  },
+  "homepage": "https://github.com/leo43555483/vue-index-box#readme"
 }

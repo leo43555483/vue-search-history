@@ -1,0 +1,40 @@
+.vs-history__list{
+  display: flex;
+  padding: 0;
+  align-items: center;
+  align-content: center;
+  list-style: none;
+}
+.vs-history__item{
+  padding: 4px 8px;
+  margin: 0 4px 0 0;
+  background-color: #d0d0d0;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.vs-history__header{
+  display: flex;
+  position: relative;
+  padding: 4px 0;
+  justify-content: space-between;
+}
+.vs-history__header::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  pointer-events: none;
+  border-bottom: 1px solid #d0d0d0;
+  transform: scaleY(0.5);
+} 
+.vs-history__title{
+  font-size: 14px;
+  font-weight: 600;
+}
+.vs-history__remove{
+  width: 16px;
+  height: 16px;
+  background-image: url('../img/remove.svg');
+}
