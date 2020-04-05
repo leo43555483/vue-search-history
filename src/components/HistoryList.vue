@@ -8,17 +8,24 @@
         class="vs-history__remove"
         ></div>
     </div>
-    <ul class="vs-history__list">
-      <li
-        v-for="item in list"
-        :key="item.id"
-        class="vs-history__item"
-        @click="(e) => onClick(e,item)"
-        >
-        {{item.data | parse}}
-        </li>
-      <li v-show="origin.length > maxShow" @click="onShowAll">显示全部</li>
-    </ul>
+    <div class="vs-history__main">
+      <ul class="vs-history__list">
+        <li
+          v-for="item in list"
+          :key="item.id"
+          class="vs-history__item"
+          @click="(e) => onClick(e,item)"
+          >
+          {{item.data | parse}}
+          </li>
+        <li
+          class="vs-arrow"
+          :show-all="`${showAll}`"
+          v-show="origin.length > miniShow"
+          @click="onShowAll"
+        ></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -44,7 +51,7 @@ export default {
     },
   },
   props: {
-    maxShow: {
+    miniShow: {
       type: Number,
       default: 3,
     },
@@ -65,11 +72,11 @@ export default {
       this.showAll = !this.showAll;
     },
     sliceList(list) {
-      return list.slice(0, this.maxShow);
+      return list.slice(0, this.miniShow);
     },
     setList(list) {
       this.origin = list;
-      if (this.maxShow > 0) {
+      if (this.miniShow > 0) {
         this.list = this.sliceList(list);
       } else {
         this.list = list;

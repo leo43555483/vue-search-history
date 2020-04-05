@@ -1,13 +1,33 @@
+.vs-history__main{
+  padding: 16px 0;
+}
 .vs-history__list{
   display: flex;
   padding: 0;
+  margin: 0;
+  width: 80%;
+  flex-wrap: wrap;
   align-items: center;
   align-content: center;
   list-style: none;
 }
+.vs-history__list li {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.vs-history__list .vs-arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  background-image: url('../img/arrow.svg');
+}
+.vs-history__list .vs-arrow[show-all=true] {
+  transform: rotate(180deg);
+  transition: transform .2s;
+}
 .vs-history__item{
   padding: 4px 8px;
-  margin: 0 4px 0 0;
+  margin-left: 8px;
   background-color: #d0d0d0;
   border-radius: 10px;
   font-size: 12px;

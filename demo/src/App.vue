@@ -2,11 +2,8 @@
   <div id="app">
     <input type="text" @change="onChange" @focus="onFocus">
     <button @click="onClick">删除</button>
-    <SearchHistory ref="history" replaceType="LFU">
-      <HistoryList v-show="showHistoryList" @clickItem="onClickItem" :maxShow="5"/>
-      <!-- <ul v-show="showHistoryList" slot-scope="{data}">
-        <li v-for="(item, i) in data" :key="i">{{item.data}}</li>
-      </ul> -->
+    <SearchHistory ref="history" replaceType="LFU" :max="10">
+      <HistoryList v-show="showHistoryList" @clickItem="onClickItem" :miniShow="5"/>
     </SearchHistory>
   </div>
 </template>
