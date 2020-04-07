@@ -13,7 +13,7 @@ import {
   getId,
 } from '../utils';
 import { DEFAULT_REPLACE_TYPE, SOURCE_KEY } from '../constants';
-// import HistoryList from './HistoryList';
+
 const MAX_CACHE_DEFAULT = 5;
 export default {
   name: 'SearchHistory',
@@ -43,11 +43,11 @@ export default {
     },
   },
   props: {
-    handleErro: {
+    storageInvalid: {
       type: Function,
       default: () => {},
     },
-    replaceType: {
+    replacement: {
       type: String,
       default: DEFAULT_REPLACE_TYPE,
     },
@@ -115,18 +115,18 @@ export default {
     },
   },
   created() {
-    const { replaceType } = this;
+    const { replacement } = this;
     const initialHistories = {
-      replaceType,
+      replacement,
       data: [],
     };
     this.beforeUnload();
     storage.init(initialHistories)
       .then((histories) => {
         this.histories = histories;
-        this.strategy = getStrategy(replaceType);
+        this.strategy = getStrategy(replacement);
       }).catch((e) => {
-        this.handleErro(e);
+        this.storageInvalid(e);
       });
   },
   beforeDestroy() {

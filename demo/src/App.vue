@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <input type="text" @change="onChange" @focus="onFocus">
-    <button @click="onClick">删除</button>
-    <SearchHistory ref="history" replaceType="LFU" :max="10">
-      <HistoryList v-show="showHistoryList" @clickItem="onClickItem" :miniShow="5"/>
+    <SearchHistory ref="history" replacement="LFU" :max="10">
+      <HistoryList 
+        v-show="showHistoryList" 
+        @clickItem="onClickItem" 
+        :miniShow="5"
+        title="搜索历史"
+      />
     </SearchHistory>
   </div>
 </template>

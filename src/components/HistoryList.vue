@@ -1,12 +1,15 @@
 <template>
   <div class="vs-history__wrapper">
-    <div class="vs-history__header" v-if="deleteButton">
-      <div class="vs-history__title">搜索历史</div>
-      <div
-        v-show="list.length > 0"
-        @click="onDelete"
-        class="vs-history__remove"
-        ></div>
+    <div class="vs-history__header" >
+      <div class="vs-history__title">{{title}}</div>
+      <template v-if="deleteButton">
+        <div
+          v-show="origin.length > 0"
+          @click="onDelete"
+          class="vs-history__remove"
+        >
+        </div>
+      </template>
     </div>
     <div class="vs-history__main">
       <ul class="vs-history__list">
@@ -32,6 +35,7 @@
 <script>
 import '../assets/css/list.css';
 
+const DEFAULT_TITLE = 'Search History';
 export default {
   name: 'HistoryList',
   data() {
@@ -58,6 +62,10 @@ export default {
     deleteButton: {
       type: Boolean,
       default: true,
+    },
+    title: {
+      type: String,
+      default: DEFAULT_TITLE,
     },
   },
   methods: {
